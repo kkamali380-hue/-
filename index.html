@@ -1,91 +1,560 @@
-🏥
-پخش تجهیزات پزشکی صبا
-تأمین‌کننده لوازم بهداشتی و پزشکی
-🌟 تأمین‌کننده معتبر تجهیزات پزشکی
-پخش تجهیزات پزشکی
-صبا
-عرضه‌کننده انواع لوازم بهداشتی، مصرفی و تجهیزات پزشکی با کیفیت تضمین‌شده
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پخش تجهیزات پزشکی صبا</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-deep: #0a2a6e;
+      --blue-mid: #1a4da0;
+      --blue-light: #2e6fd4;
+      --blue-pale: #e8f0fb;
+      --accent: #00b4d8;
+      --accent2: #48cae4;
+      --white: #ffffff;
+      --gray: #f4f7fc;
+      --text: #1a2340;
+      --text-light: #5a6a8a;
+      --border: #d0ddf5;
+    }
 
-مشاهده محصولات
-تماس با ما
-درباره ما
-چرا پخش صبا؟
-ما با سال‌ها تجربه در حوزه تجهیزات پزشکی، بهترین محصولات را عرضه می‌کنیم
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-✅
-کیفیت تضمین‌شده
-تمامی محصولات دارای مجوزهای بهداشتی معتبر و کیفیت استاندارد هستند
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-🚚
-تحویل سریع
-آماده ارائه خدمات به عمده‌فروشان، داروخانه‌ها و مراکز درمانی در سراسر کشور
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-mid) 60%, var(--blue-light) 100%);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(10,42,110,0.3);
+    }
 
-💊
-تنوع محصولات
-بیش از ۲۰ نوع محصول بهداشتی و پزشکی برای پاسخ به نیاز مشتریان
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
 
-🤝
-قیمت رقابتی
-بهترین قیمت‌ها برای خرید عمده و همکاری بلندمدت با مشتریان
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-محصولات
-محصولات ما
-انواع لوازم بهداشتی، مصرفی و تجهیزات پزشکی
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
 
-🩺
-فشارسنج
-🛏️
-تشک برقی
-💨
-بخور سرد
-🌬️
-تصفیه هوا همراه
-🩹
-چسب میخچه
-🩹
-چسب درد
-👃
-چسب بینی
-✨
-چسب جوش
-🤱
-پد سینه
-🌸
-کاپ قاعدگی
-💊
-اسپری تاخیری
-🦶
-پودر بوگیر پا
-♨️
-کیسه آبگرم
-🧴
-خمیر امحا
-🩻
-گاز استریل
-💉
-سرنگ
-🩸
-ست سرم
-💧
-میکروست
-🩹
-چسب کنزو
-🩹
-پانسمان خودچسب
-تماس با ما
-ارتباط با پخش صبا
-برای سفارش و استعلام قیمت با ما در تماس باشید
+    .logo-text {
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
 
-📞
-شماره تماس
-۰۹۱۲۸۱۲۰۲۲۹
-📍
-آدرس
-بزرگراه نواب (جنوب به شمال)، قبل از پل کمیل، پاساژ کالا پزشکی افرا، طبقه دوم، واحد ۲۱۱
+    .logo-text span {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      opacity: 0.8;
+    }
 
-🕐
-ساعت کاری
-شنبه تا چهارشنبه
-۸:۳۰ تا ۱۷:۰۰
+    nav {
+      display: flex;
+      gap: 6px;
+    }
 
-تمامی حقوق برای پخش تجهیزات پزشکی صبا محفوظ است © ۱۴۰۴
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.15);
+      color: white;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(160deg, var(--blue-deep) 0%, var(--blue-mid) 50%, #1e5fb0 100%);
+      padding: 80px 20px 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,180,216,0.15) 0%, transparent 70%);
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,180,216,0.2);
+      border: 1px solid rgba(0,180,216,0.4);
+      color: var(--accent2);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 20px;
+      animation: fadeInDown 0.6s ease;
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      animation: fadeInUp 0.7s ease;
+    }
+
+    .hero h1 em {
+      color: var(--accent2);
+      font-style: normal;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 17px;
+      max-width: 500px;
+      margin: 0 auto 36px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.9s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px rgba(0,180,216,0.4);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,180,216,0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      border: 2px solid rgba(255,255,255,0.4);
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--blue-pale);
+      color: var(--blue-mid);
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 800;
+      color: var(--blue-deep);
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--text-light);
+      font-size: 16px;
+    }
+
+    /* ===== ABOUT ===== */
+    #about {
+      background: var(--gray);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .about-card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .about-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(10,42,110,0.1);
+      border-color: var(--blue-light);
+    }
+
+    .about-card .icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .about-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--blue-deep);
+      margin-bottom: 8px;
+    }
+
+    .about-card p {
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ===== PRODUCTS ===== */
+    #products {
+      background: white;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .product-card {
+      background: var(--gray);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 16px;
+      text-align: center;
+      transition: all 0.25s;
+      cursor: default;
+    }
+
+    .product-card:hover {
+      background: var(--blue-pale);
+      border-color: var(--blue-light);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(10,42,110,0.1);
+    }
+
+    .product-card .prod-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .product-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--blue-deep);
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-mid) 100%);
+      color: white;
+    }
+
+    #contact .section-header h2 {
+      color: white;
+    }
+
+    #contact .section-header p {
+      color: rgba(255,255,255,0.7);
+    }
+
+    #contact .section-tag {
+      background: rgba(255,255,255,0.15);
+      color: var(--accent2);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: all 0.25s;
+    }
+
+    .contact-card:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .contact-info h4 {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 6px;
+      font-weight: 400;
+    }
+
+    .contact-info p, .contact-info a {
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+      line-height: 1.6;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent2);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--blue-deep);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+      nav { display: none; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">🏥</div>
+      <div class="logo-text">
+        پخش تجهیزات پزشکی صبا
+        <span>تأمین‌کننده لوازم بهداشتی و پزشکی</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#about">درباره ما</a>
+      <a href="#products">محصولات</a>
+      <a href="#contact">تماس</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🌟 تأمین‌کننده معتبر تجهیزات پزشکی</div>
+  <h1>پخش تجهیزات پزشکی<br><em>صبا</em></h1>
+  <p>عرضه‌کننده انواع لوازم بهداشتی، مصرفی و تجهیزات پزشکی با کیفیت تضمین‌شده</p>
+  <div class="hero-btns">
+    <a href="#products" class="btn-primary">مشاهده محصولات</a>
+    <a href="#contact" class="btn-outline">تماس با ما</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">درباره ما</div>
+      <h2>چرا پخش صبا؟</h2>
+      <p>ما با سال‌ها تجربه در حوزه تجهیزات پزشکی، بهترین محصولات را عرضه می‌کنیم</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="icon">✅</div>
+        <h3>کیفیت تضمین‌شده</h3>
+        <p>تمامی محصولات دارای مجوزهای بهداشتی معتبر و کیفیت استاندارد هستند</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🚚</div>
+        <h3>تحویل سریع</h3>
+        <p>آماده ارائه خدمات به عمده‌فروشان، داروخانه‌ها و مراکز درمانی در سراسر کشور</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">💊</div>
+        <h3>تنوع محصولات</h3>
+        <p>بیش از ۲۰ نوع محصول بهداشتی و پزشکی برای پاسخ به نیاز مشتریان</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🤝</div>
+        <h3>قیمت رقابتی</h3>
+        <p>بهترین قیمت‌ها برای خرید عمده و همکاری بلندمدت با مشتریان</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">محصولات</div>
+      <h2>محصولات ما</h2>
+      <p>انواع لوازم بهداشتی، مصرفی و تجهیزات پزشکی</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card"><div class="prod-icon">🩺</div><h4>فشارسنج</h4></div>
+      <div class="product-card"><div class="prod-icon">🛏️</div><h4>تشک برقی</h4></div>
+      <div class="product-card"><div class="prod-icon">💨</div><h4>بخور سرد</h4></div>
+      <div class="product-card"><div class="prod-icon">🌬️</div><h4>تصفیه هوا همراه</h4></div>
+      <div class="product-card"><div class="prod-icon">🩹</div><h4>چسب میخچه</h4></div>
+      <div class="product-card"><div class="prod-icon">🩹</div><h4>چسب درد</h4></div>
+      <div class="product-card"><div class="prod-icon">👃</div><h4>چسب بینی</h4></div>
+      <div class="product-card"><div class="prod-icon">✨</div><h4>چسب جوش</h4></div>
+      <div class="product-card"><div class="prod-icon">🤱</div><h4>پد سینه</h4></div>
+      <div class="product-card"><div class="prod-icon">🌸</div><h4>کاپ قاعدگی</h4></div>
+      <div class="product-card"><div class="prod-icon">💊</div><h4>اسپری تاخیری</h4></div>
+      <div class="product-card"><div class="prod-icon">🦶</div><h4>پودر بوگیر پا</h4></div>
+      <div class="product-card"><div class="prod-icon">♨️</div><h4>کیسه آبگرم</h4></div>
+      <div class="product-card"><div class="prod-icon">🧴</div><h4>خمیر امحا</h4></div>
+      <div class="product-card"><div class="prod-icon">🩻</div><h4>گاز استریل</h4></div>
+      <div class="product-card"><div class="prod-icon">💉</div><h4>سرنگ</h4></div>
+      <div class="product-card"><div class="prod-icon">🩸</div><h4>ست سرم</h4></div>
+      <div class="product-card"><div class="prod-icon">💧</div><h4>میکروست</h4></div>
+      <div class="product-card"><div class="prod-icon">🩹</div><h4>چسب کنزو</h4></div>
+      <div class="product-card"><div class="prod-icon">🩹</div><h4>پانسمان خودچسب</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">تماس با ما</div>
+      <h2>ارتباط با پخش صبا</h2>
+      <p>برای سفارش و استعلام قیمت با ما در تماس باشید</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <div class="contact-info">
+          <h4>شماره تماس</h4>
+          <a href="tel:09128120229">۰۹۱۲۸۱۲۰۲۲۹</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <div class="contact-info">
+          <h4>آدرس</h4>
+          <p>بزرگراه نواب (جنوب به شمال)، قبل از پل کمیل، پاساژ کالا پزشکی افرا، طبقه دوم، واحد ۲۱۱</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">🕐</div>
+        <div class="contact-info">
+          <h4>ساعت کاری</h4>
+          <p>شنبه تا چهارشنبه<br>۸:۳۰ تا ۱۷:۰۰</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>تمامی حقوق برای <strong>پخش تجهیزات پزشکی صبا</strong> محفوظ است &copy; ۱۴۰۴</p>
+</footer>
+
+</body>
+</html>
