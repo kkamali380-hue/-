@@ -3,7 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>پخش تجهیزات پزشکی صبا</title>
+  <title>پخش تجهیزات پزشکی صبا | بزرگراه نواب تهران</title>
+  <meta name="description" content="پخش تجهیزات پزشکی صبا - عرضه‌کننده انواع لوازم بهداشتی، مصرفی و تجهیزات پزشکی در تهران. فشارسنج، درجه تب، تشک برقی، چسب کمر و بیش از ۴۰ محصول پزشکی با قیمت مناسب.">
+  <meta name="keywords" content="پخش تجهیزات پزشکی, لوازم پزشکی تهران, فشارسنج آکسان, درجه تب, تشک برقی, چسب کمر, پخش صبا, لوازم بهداشتی, تجهیزات پزشکی نواب, پخش دارو تهران">
+  <meta name="author" content="پخش تجهیزات پزشکی صبا">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="پخش تجهیزات پزشکی صبا">
+  <meta property="og:description" content="عرضه‌کننده انواع لوازم بهداشتی و تجهیزات پزشکی در تهران">
+  <meta property="og:type" content="business.business">
+  <meta property="og:url" content="https://kkamali380-hue.github.io/-/">
+  <link rel="canonical" href="https://kkamali380-hue.github.io/-/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "پخش تجهیزات پزشکی صبا",
+    "description": "عرضه‌کننده انواع لوازم بهداشتی، مصرفی و تجهیزات پزشکی",
+    "url": "https://kkamali380-hue.github.io/-/",
+    "telephone": "+989128120229",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "بزرگراه نواب جنوب به شمال، قبل از پل کمیل، پاساژ کالا پزشکی افرا، طبقه دوم، واحد ۲۱۱",
+      "addressLocality": "تهران",
+      "addressCountry": "IR"
+    },
+    "openingHours": "Sa-We 08:30-17:00",
+    "priceRange": "$$"
+  }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -73,7 +100,6 @@
     .about-card h3 { font-size: 17px; font-weight: 700; color: var(--blue-deep); margin-bottom: 8px; }
     .about-card p { color: var(--text-light); font-size: 14px; line-height: 1.7; }
 
-    /* Search & Filter */
     .search-bar { margin-bottom: 30px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
     .search-bar input {
       flex: 1; min-width: 200px; padding: 12px 18px; border: 2px solid var(--border);
@@ -93,8 +119,7 @@
     .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
     .product-card {
       background: var(--gray); border: 1px solid var(--border);
-      border-radius: 14px; padding: 20px 16px; text-align: center;
-      transition: all 0.25s; position: relative;
+      border-radius: 14px; padding: 20px 16px; text-align: center; transition: all 0.25s;
     }
     .product-card:hover {
       background: var(--blue-pale); border-color: var(--blue-light);
@@ -110,13 +135,9 @@
       display: inline-block; font-size: 12px; color: #aaa;
       border: 1px dashed #ccc; padding: 3px 10px; border-radius: 20px;
     }
-    .product-card .category-badge {
-      position: absolute; top: 10px; left: 10px;
-      font-size: 10px; background: var(--accent); color: white;
-      padding: 2px 8px; border-radius: 10px; font-weight: 600;
-    }
-
     .no-results { text-align: center; padding: 50px; color: var(--text-light); font-size: 16px; display: none; }
+    .price-note { text-align: center; margin-top: 24px; color: var(--text-light); font-size: 13px; }
+    .price-note span { background: var(--blue-pale); color: var(--blue-mid); padding: 4px 12px; border-radius: 10px; font-weight: 600; }
 
     #contact { background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-mid) 100%); color: white; }
     #contact .section-header h2 { color: white; }
@@ -133,23 +154,20 @@
     footer { background: var(--blue-deep); color: rgba(255,255,255,0.6); text-align: center; padding: 20px; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.1); }
     footer strong { color: white; }
 
-    .price-note { text-align: center; margin-top: 24px; color: var(--text-light); font-size: 13px; }
-    .price-note span { background: var(--blue-pale); color: var(--blue-mid); padding: 4px 12px; border-radius: 10px; font-weight: 600; }
-
     @media (max-width: 600px) {
       nav { display: none; }
       .products-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
-<body>
+<body itemscope itemtype="https://schema.org/LocalBusiness">
 
 <header>
   <div class="header-inner">
     <div class="logo">
       <div class="logo-icon">🏥</div>
       <div class="logo-text">
-        پخش تجهیزات پزشکی صبا
+        <span itemprop="name">پخش تجهیزات پزشکی صبا</span>
         <span>تأمین‌کننده لوازم بهداشتی و پزشکی</span>
       </div>
     </div>
@@ -162,9 +180,9 @@
 </header>
 
 <div class="hero">
-  <div class="hero-badge">🌟 تأمین‌کننده معتبر تجهیزات پزشکی</div>
+  <div class="hero-badge">🌟 تأمین‌کننده معتبر تجهیزات پزشکی در تهران</div>
   <h1>پخش تجهیزات پزشکی <em>صبا</em></h1>
-  <p>عرضه‌کننده انواع لوازم بهداشتی، مصرفی و تجهیزات پزشکی با کیفیت تضمین‌شده</p>
+  <p>عرضه‌کننده انواع لوازم بهداشتی، مصرفی و تجهیزات پزشکی در تهران با کیفیت تضمین‌شده</p>
   <div class="hero-btns">
     <a href="#products" class="btn-primary">مشاهده محصولات</a>
     <a href="#contact" class="btn-outline">تماس با ما</a>
@@ -176,7 +194,7 @@
     <div class="section-header">
       <div class="section-tag">درباره ما</div>
       <h2>چرا پخش صبا؟</h2>
-      <p>ما با سال‌ها تجربه در حوزه تجهیزات پزشکی، بهترین محصولات را عرضه می‌کنیم</p>
+      <p>تأمین‌کننده معتبر تجهیزات پزشکی و لوازم بهداشتی در تهران</p>
     </div>
     <div class="about-grid">
       <div class="about-card">
@@ -192,7 +210,7 @@
       <div class="about-card">
         <div class="icon">💊</div>
         <h3>تنوع محصولات</h3>
-        <p>بیش از ۲۰ نوع محصول بهداشتی و پزشکی برای پاسخ به نیاز مشتریان</p>
+        <p>بیش از ۴۰ نوع محصول بهداشتی و پزشکی برای پاسخ به نیاز مشتریان</p>
       </div>
       <div class="about-card">
         <div class="icon">🤝</div>
@@ -207,10 +225,9 @@
   <div class="container">
     <div class="section-header">
       <div class="section-tag">محصولات</div>
-      <h2>محصولات ما</h2>
-      <p>انواع لوازم بهداشتی، مصرفی و تجهیزات پزشکی</p>
+      <h2>محصولات پزشکی و بهداشتی ما</h2>
+      <p>انواع لوازم بهداشتی، مصرفی و تجهیزات پزشکی با قیمت مناسب</p>
     </div>
-
     <div class="search-bar">
       <input type="text" id="searchInput" placeholder="🔍 جستجو در محصولات..." oninput="filterProducts()">
       <div class="filter-btns">
@@ -222,7 +239,6 @@
         <button class="filter-btn" onclick="setFilter('حشره', this)">حشره‌کش</button>
       </div>
     </div>
-
     <div class="products-grid" id="productsGrid"></div>
     <div class="no-results" id="noResults">❌ محصولی یافت نشد</div>
     <p class="price-note">* تمامی قیمت‌ها به <span>تومان</span> می‌باشد</p>
@@ -234,21 +250,21 @@
     <div class="section-header">
       <div class="section-tag">تماس با ما</div>
       <h2>ارتباط با پخش صبا</h2>
-      <p>برای سفارش و استعلام قیمت با ما در تماس باشید</p>
+      <p>برای سفارش و استعلام قیمت تجهیزات پزشکی با ما در تماس باشید</p>
     </div>
     <div class="contact-grid">
       <div class="contact-card">
         <div class="contact-icon">📞</div>
         <div class="contact-info">
           <h4>شماره تماس</h4>
-          <a href="tel:09128120229">۰۹۱۲۸۱۲۰۲۲۹</a>
+          <a href="tel:09128120229" itemprop="telephone">۰۹۱۲۸۱۲۰۲۲۹</a>
         </div>
       </div>
       <div class="contact-card">
         <div class="contact-icon">📍</div>
         <div class="contact-info">
           <h4>آدرس</h4>
-          <p>بزرگراه نواب (جنوب به شمال)، قبل از پل کمیل، پاساژ کالا پزشکی افرا، طبقه دوم، واحد ۲۱۱</p>
+          <p itemprop="address">تهران، بزرگراه نواب (جنوب به شمال)، قبل از پل کمیل، پاساژ کالا پزشکی افرا، طبقه دوم، واحد ۲۱۱</p>
         </div>
       </div>
       <div class="contact-card">
@@ -333,9 +349,7 @@ function renderProducts(list) {
     <div class="product-card">
       <span class="prod-icon">${p.icon}</span>
       <h4>${p.name}</h4>
-      ${p.price
-        ? `<span class="price">${p.price} تومان</span>`
-        : `<span class="no-price">استعلام قیمت</span>`}
+      ${p.price ? `<span class="price">${p.price} تومان</span>` : `<span class="no-price">استعلام قیمت</span>`}
     </div>
   `).join('');
 }
@@ -343,12 +357,8 @@ function renderProducts(list) {
 function filterProducts() {
   const q = document.getElementById('searchInput').value.trim().toLowerCase();
   let list = products;
-  if (currentFilter !== 'all') {
-    list = list.filter(p => p.name.includes(currentFilter));
-  }
-  if (q) {
-    list = list.filter(p => p.name.toLowerCase().includes(q));
-  }
+  if (currentFilter !== 'all') list = list.filter(p => p.name.includes(currentFilter));
+  if (q) list = list.filter(p => p.name.toLowerCase().includes(q));
   renderProducts(list);
 }
 
@@ -362,6 +372,5 @@ function setFilter(cat, btn) {
 
 renderProducts(products);
 </script>
-
 </body>
 </html>
