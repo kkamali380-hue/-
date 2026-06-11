@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فروشگاه | پخش تجهیزات پزشکی صبا</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#1a6b3c;--green-light:#e8f5ee;--green-mid:#2e8b57;--accent:#f0a500;--bg:#f7f9f7;--white:#fff;--text:#1a2420;--text-light:#5a6b62;--border:#d0e0d6;--red:#dc2626;--shadow:0 2px 12px rgba(26,107,60,.10)}
+body{font-family:'Vazirmatn',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+header{background:var(--green);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.header-logo{font-size:16px;font-weight:700}.header-logo span{color:var(--accent)}
+.cart-btn{background:var(--accent);border:none;color:#fff;padding:8px 16px;border-radius:20px;font-family:'Vazirmatn',sans-serif;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px}
+.cart-count{background:#fff;color:var(--green);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.filter-bar{background:#fff;padding:14px 16px;border-bottom:1px solid var(--border);position:sticky;top:56px;z-index:90}
+.search-input{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:'Vazirmatn',sans-serif;font-size:14px;outline:none;margin-bottom:10px;background:var(--bg)}
+.search-input:focus{border-color:var(--green-mid)}
+.categories{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.cat-btn{background:var(--bg);border:1.5px solid var(--border);color:var(--text-light);padding:6px 14px;border-radius:20px;font-family:'Vazirmatn',sans-serif;font-size:13px;cursor:pointer;white-space:nowrap;transition:all .2s}
+.cat-btn.active{background:var(--green);border-color:var(--green);color:#fff}
+.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px}
+.product-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border)}
+.product-img{width:100%;aspect-ratio:1;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:40px}
+.product-img img{width:100%;height:100%;object-fit:cover}
+.product-info{padding:10px}
+.product-name{font-size:13px;font-weight:600;margin-bottom:4px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.product-price{font-size:14px;font-weight:700;color:var(--green);margin-bottom:8px}
+.product-stock{font-size:11px;color:var(--text-light);margin-bottom:8px}
+.stock-out{color:var(--red)}
+.add-btn{width:100%;background:var(--green);color:#fff;border:none;padding:8px;border-radius:8px;font-family:'Vazirmatn',sans-serif;font-size:13px;font-weight:600;cursor:pointer}
+.add-btn:disabled{background:var(--border);color:var(--text-light);cursor:not-allowed}
+.loading{text-align:center;padding:60px 20px;color:var(--text-light);grid-column:1/-1}
+.spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
+.overlay.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;left:0;right:0;bottom:0;background:#fff;border-radius:20px 20px 0 0;z-index:201;max-height:85vh;overflow-y:auto;transform:translateY(100%);transition:transform .3s ease;padding:20px 16px}
+.drawer.open{transform:translateY(0)}
+.drawer-title{font-size:18px;font-weight:700;margin-bottom:16px;color:var(--green)}
+.cart-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+.cart-item-img{width:50px;height:50px;background:var(--green-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;overflow:hidden}
+.cart-item-img img{width:100%;height:100%;object-fit:cover}
+.cart-item-info{flex:1}
+.cart-item-name{font-size:13px;font-weight:600;margin-bottom:4px}
+.cart-item-price{font-size:13px;color:var(--green);font-weight:700}
+.qty-controls{display:flex;align-items:center;gap:8px}
+.qty-btn{width:28px;height:28px;border:1.5px solid var(--border);background:#fff;border-radius:6px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700}
+.qty-num{font-size:14px;font-weight:700;min-width:20px;text-align:center}
+.cart-total{display:flex;justify-content:space-between;padding:16px 0 8px;font-weight:700;font-size:16px}
+.checkout-btn{width:100%;background:var(--green);color:#fff;border:none;padding:14px;border-radius:12px;font-family:'Vazirmatn',sans-serif;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px}
+.form-section{margin-bottom:16px}
+.form-label{font-size:13px;font-weight:600;color:var(--text-light);margin-bottom:6px;display:block}
+.form-input,.form-textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:'Vazirmatn',sans-serif;font-size:14px;outline:none;background:var(--bg)}
+.form-textarea{resize:none;min-height:80px}
+.payment-options{display:flex;gap:10px}
+.payment-option{flex:1;border:2px solid var(--border);border-radius:10px;padding:12px 8px;text-align:center;cursor:pointer;font-size:13px;font-weight:600}
+.payment-option.selected{border-color:var(--green);background:var(--green-light);color:var(--green)}
+.pay-icon{font-size:24px;margin-bottom:4px}
+.submit-btn{width:100%;background:var(--accent);color:#fff;border:none;padding:14px;border-radius:12px;font-family:'Vazirmatn',sans-serif;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px}
+.submit-btn:disabled{background:var(--border);cursor:not-allowed}
+.success-screen{text-align:center;padding:30px 20px}
+.success-icon{font-size:60px;margin-bottom:16px}
+.success-title{font-size:20px;font-weight:700;color:var(--green);margin-bottom:8px}
+.success-text{font-size:14px;color:var(--text-light);line-height:1.6}
+.success-order-id{background:var(--green-light);border-radius:10px;padding:12px;margin:16px 0;font-weight:700;color:var(--green);font-size:15px}
+.back-btn{background:var(--green);color:#fff;border:none;padding:12px 30px;border-radius:10px;font-family:'Vazirmatn',sans-serif;font-size:15px;font-weight:600;cursor:pointer;margin-top:8px}
+.back-link{display:inline-flex;align-items:center;gap:4px;color:var(--text-light);font-size:13px;cursor:pointer;margin-bottom:16px}
+.steps{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:20px}
+.step{width:28px;height:28px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--text-light)}
+.step.active{border-color:var(--green);background:var(--green);color:#fff}
+.step.done{border-color:var(--green);color:var(--green)}
+.step-line{flex:1;max-width:40px;height:2px;background:var(--border)}
+.step-line.done{background:var(--green)}
+</style>
+</head>
+<body>
+<header>
+<div class="header-logo">🏥 پخش <span>صبا</span></div>
+<button class="cart-btn" onclick="openCart()">🛒 سبد خرید<span class="cart-count" id="cartCount">0</span></button>
+</header>
+<div class="filter-bar">
+<input class="search-input" type="text" placeholder="🔍 جستجوی محصول..." id="searchInput" oninput="filterProducts()">
+<div class="categories" id="categories"><button class="cat-btn active" onclick="selectCategory('همه',this)">همه</button></div>
+</div>
+<div class="products-grid" id="productsGrid"><div class="loading" style="grid-column:1/-1"><div class="spinner"></div>در حال بارگذاری...</div></div>
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+<div class="drawer" id="cartDrawer"><div id="cartContent"></div></div>
+<script>
+const SUPABASE_URL='https://kitpblirpmnbrdutysuo.supabase.co';
+const SUPABASE_KEY='sb_publishable_Qk5vn9Abio71BY8_mVXOHA_U5K3F0WQ';
+let allProducts=[],cart=JSON.parse(localStorage.getItem('saba_cart')||'[]'),currentCategory='همه',currentStep='cart',selectedPayment='online',lastOrderId=null;
+async function supabase(method,table,body=null,query=''){const res=await fetch(`${SUPABASE_URL}/rest/v1/${table}${query}`,{method,headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json','Prefer':method==='POST'?'return=representation':''},body:body?JSON.stringify(body):null});if(!res.ok)throw new Error(await res.text());return res.json()}
+async function loadProducts(){try{const data=await supabase('GET','products',null,'?active=eq.true&order=name.asc');allProducts=data;buildCategories();renderProducts()}catch(e){document.getElementById('productsGrid').innerHTML='<div class="loading"><p>خطا در بارگذاری</p></div>'}}
+function buildCategories(){const cats=['همه',...new Set(allProducts.map(p=>p.category).filter(Boolean))];document.getElementById('categories').innerHTML=cats.map((c,i)=>`<button class="cat-btn ${i===0?'active':''}" onclick="selectCategory('${c}',this)">${c}</button>`).join('')}
+function selectCategory(cat,btn){currentCategory=cat;document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');filterProducts()}
+function filterProducts(){const q=document.getElementById('searchInput').value.toLowerCase();let f=allProducts.filter(p=>(currentCategory==='همه'||p.category===currentCategory)&&(!q||p.name.toLowerCase().includes(q)));renderProducts(f)}
+function renderProducts(products=allProducts){const grid=document.getElementById('productsGrid');if(!products.length){grid.innerHTML='<div class="loading"><p>محصولی یافت نشد</p></div>';return}grid.innerHTML=products.map(p=>`<div class="product-card"><div class="product-img">${p.image_url?`<img src="${p.image_url}" alt="${p.name}">`:'💊'}</div><div class="product-info"><div class="product-name">${p.name}</div>${p.category?`<div style="font-size:11px;color:var(--text-light);margin-bottom:6px">${p.category}</div>`:''}<div class="product-price">${Number(p.price).toLocaleString('fa')} تومان</div><div class="product-stock ${p.stock<=0?'stock-out':''}">${p.stock>0?`موجودی: ${p.stock}`:'ناموجود'}</div><button class="add-btn" ${p.stock<=0?'disabled':''} onclick="addToCart(${p.id})">${p.stock>0?'+ افزودن':'ناموجود'}</button></div></div>`).join('')}
+function addToCart(id){const p=allProducts.find(x=>x.id===id);if(!p)return;const e=cart.find(c=>c.id===id);if(e){if(e.qty>=p.stock)return;e.qty++}else cart.push({id,name:p.name,price:p.price,qty:1,image_url:p.image_url,stock:p.stock});saveCart();updateCartCount()}
+function removeFromCart(id){const i=cart.find(c=>c.id===id);if(!i)return;if(i.qty>1)i.qty--;else cart=cart.filter(c=>c.id!==id);saveCart();updateCartCount();renderCartContent()}
+function saveCart(){localStorage.setItem('saba_cart',JSON.stringify(cart))}
+function updateCartCount(){document.getElementById('cartCount').textContent=cart.reduce((s,c)=>s+c.qty,0)}
+function cartTotal(){return cart.reduce((s,c)=>s+c.qty*Number(c.price),0)}
+function openCart(){currentStep='cart';renderCartContent();document.getElementById('overlay').classList.add('open');document.getElementById('cartDrawer').classList.add('open')}
+function closeAll(){document.getElementById('overlay').classList.remove('open');document.getElementById('cartDrawer').classList.remove('open')}
+function renderCartContent(){const el=document.getElementById('cartContent');if(currentStep==='cart')renderCartStep(el);else if(currentStep==='form')renderFormStep(el);else renderSuccessStep(el)}
+function renderCartStep(el){if(!cart.length){el.innerHTML='<div class="drawer-title">🛒 سبد خرید</div><div style="text-align:center;padding:40px;color:var(--text-light)"><div style="font-size:48px;margin-bottom:12px">🛒</div><p>سبد خالی است</p></div>';return}el.innerHTML=`<div class="drawer-title">🛒 سبد خرید</div>${cart.map(i=>`<div class="cart-item"><div class="cart-item-img">${i.image_url?`<img src="${i.image_url}">`:'💊'}</div><div class="cart-item-info"><div class="cart-item-name">${i.name}</div><div class="cart-item-price">${Number(i.price).toLocaleString('fa')} تومان</div></div><div class="qty-controls"><button class="qty-btn" onclick="removeFromCart(${i.id});renderCartContent()">−</button><span class="qty-num">${i.qty}</span><button class="qty-btn" onclick="addToCart(${i.id});renderCartContent()">+</button></div></div>`).join('')}<div class="cart-total"><span>جمع کل:</span><span>${cartTotal().toLocaleString('fa')} تومان</span></div><button class="checkout-btn" onclick="currentStep='form';renderCartContent()">ادامه ←</button>`}
+function renderFormStep(el){el.innerHTML=`<div class="back-link" onclick="currentStep='cart';renderCartContent()">← بازگشت</div><div class="drawer-title">📋 اطلاعات سفارش</div><div class="form-section"><label class="form-label">نام و نام خانوادگی *</label><input class="form-input" id="fName" type="text" placeholder="علی رضایی"></div><div class="form-section"><label class="form-label">شماره موبایل *</label><input class="form-input" id="fPhone" type="tel" placeholder="09xxxxxxxxx" dir="ltr"></div><div class="form-section"><label class="form-label">آدرس تحویل *</label><textarea class="form-textarea" id="fAddress" placeholder="تهران، خیابان..."></textarea></div><div class="form-section"><label class="form-label">روش پرداخت</label><div class="payment-options"><div class="payment-option selected" id="payOnline" onclick="selectPayment('online')"><div class="pay-icon">💳</div>پرداخت آنلاین</div><div class="payment-option" id="payCOD" onclick="selectPayment('cod')"><div class="pay-icon">💵</div>درب منزل</div></div></div><div style="background:var(--green-light);border-radius:10px;padding:12px;margin-bottom:16px;font-size:13px;color:var(--green)"><strong>جمع:</strong> ${cartTotal().toLocaleString('fa')} تومان</div><button class="submit-btn" id="submitBtn" onclick="submitOrder()">ثبت سفارش 🚀</button>`}
+function selectPayment(t){selectedPayment=t;document.getElementById('payOnline').classList.toggle('selected',t==='online');document.getElementById('payCOD').classList.toggle('selected',t==='cod')}
+async function submitOrder(){const name=document.getElementById('fName').value.trim(),phone=document.getElementById('fPhone').value.trim(),address=document.getElementById('fAddress').value.trim();if(!name||!phone||!address){alert('لطفاً همه فیلدها را پر کنید');return}if(!/^09\d{9}$/.test(phone)){alert('شماره موبایل را صحیح وارد کنید');return}const btn=document.getElementById('submitBtn');btn.disabled=true;btn.textContent='در حال ثبت...';try{const result=await supabase('POST','orders',{customer_name:name,customer_phone:phone,customer_address:address,payment_method:selectedPayment==='online'?'پرداخت آنلاین':'پرداخت درب منزل',total_amount:cartTotal(),items:cart.map(c=>({id:c.id,name:c.name,qty:c.qty,price:c.price})),status:'pending'});lastOrderId=result[0]?.id;cart=[];saveCart();updateCartCount();currentStep='success';renderCartContent()}catch(e){btn.disabled=false;btn.textContent='ثبت سفارش 🚀';alert('خطا در ثبت سفارش')}}
+function renderSuccessStep(el){el.innerHTML=`<div class="success-screen"><div class="success-icon">🎉</div><div class="success-title">سفارش ثبت شد!</div>${lastOrderId?`<div class="success-order-id">کد سفارش: #${lastOrderId}</div>`:''}<div class="success-text">با تشکر از خرید شما.<br>کارشناسان ما به زودی تماس می‌گیرند.</div><br><button class="back-btn" onclick="closeAll()">بازگشت به فروشگاه</button></div>`}
+updateCartCount();loadProducts();
+</script>
+</body>
+</html>
